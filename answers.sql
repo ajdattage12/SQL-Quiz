@@ -215,6 +215,20 @@ SELECT COUNT(o) FROM orders o WHERE o.shipto_state = 'CA';
 
 
 ==========
+16
+
+-----
+
+Write a query that shows the total amount of money spent across all melon
+orders.
+
+-----
+
+
+SELECT SUM(o.order_total) FROM orders o;
+
+
+==========
 17
 
 -----
@@ -238,3 +252,62 @@ Write a query that shows the order total that was lowest in price.
 
 
 SELECT MIN(o.order_total) FROM orders o;
+
+
+==========
+19
+
+-----
+
+Write a query that fetches the id of the customer whose email is
+'pclark74@gmail.com'.
+
+-----
+
+
+SELECT c.id FROM customers c WHERE c.email = 'pclark74@gmail.com';
+
+
+==========
+20
+
+-----
+
+Write a query that shows the id, status and order_total for all orders
+made by customer 100.
+
+-----
+
+
+SELECT o.id, o.status, o.order_total FROM orders o WHERE o.customer_id = 100;
+
+
+==========
+21
+
+-----
+
+Write a single query that shows the id, status, and order total for all
+orders made by 'pclark74@gmail.com'. Use a subselect to do this.
+
+
+-----
+
+
+SELECT o.id, o.status, o.order_total
+FROM orders o
+WHERE customer_id = ( SELECT c.id FROM customers c WHERE c.email = 'pclark74@gmail.com');
+
+
+==========
+22
+
+-----
+
+Write a query that shows the total amount of revenue that comes from
+internet orders.
+
+-----
+
+
+SELECT SUM(o.order_total) FROM orders o WHERE o.salesperson_id is NULL;
