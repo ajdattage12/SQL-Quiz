@@ -199,3 +199,42 @@ table.
 
 
 SELECT COUNT(c.first_name) FROM customers c;
+
+
+==========
+15
+
+-----
+
+Write a query that counts the number of orders (in the orders table) shipped to California.
+
+-----
+
+
+SELECT COUNT(o) FROM orders o WHERE o.shipto_state = 'CA';
+
+
+==========
+17
+
+-----
+
+Write a query that shows the average order cost.
+
+-----
+
+
+SELECT AVG(o.order_total) FROM orders o;
+
+
+==========
+18
+
+-----
+
+Write a query that shows the order total that was lowest in price.
+
+-----
+
+
+SELECT MIN(o.order_total) FROM orders o;
